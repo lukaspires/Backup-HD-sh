@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Programa de backup full Para HD Externo"
+echo "Backup full Para HD Externo"
 #Autor: Lucas Werle Pires
 #Programa de criação de backup full
 #DATA: 27/06/2016
@@ -11,10 +11,10 @@ msg4=""
 msg5=""
 msg6=""
  
-#SRCDIR="/dados/Backup/srvarquivos/full-$DATA.tar.gz" #diretórios que serão feito backup
-#DSTDIR=/hdexterno #diretório de destino do backup
-DATA=`date +%x` #pega data atual
-TIME_BKCP=+2 #número de dias em que será deletado o arquivo de backup
+#SRCDIR="/dados/Backup/srvarquivos/full-$DATA.tar.gz" #diretorios que sera feito backup
+#DSTDIR=/hdexterno #diretorio de destino do backup
+DATA=`date +%x` #data atual
+TIME_BKCP=+2 #retencao
 #data de inicio backup
 DATAIN=`date +%c`
 echo "Data de inicio: $DATAIN"
@@ -25,7 +25,7 @@ VERIFICA=$(df -h | awk '{ print $1}' | grep /dev/sdc2)
  
 if [ $VERIFICA = /dev/sdc2 ]; then
  
-echo"HD JA MONTADO"
+echo"JA MONTADO"
 else
 ntfs-3g /dev/sdc2 /hdexterno/
 echo"HD MONTOU"
