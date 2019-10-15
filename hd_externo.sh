@@ -3,10 +3,6 @@ echo "Programa de backup full Para HD Externo"
 #Autor: Lucas Werle Pires
 #Programa de criação de backup full
 #DATA: 27/06/2016
-echo " "
- 
- 
- 
  
 #Variaveis Globais
 msg2=""
@@ -14,9 +10,6 @@ msg3=""
 msg4=""
 msg5=""
 msg6=""
- 
- 
- 
  
 #SRCDIR="/dados/Backup/srvarquivos/full-$DATA.tar.gz" #diretórios que serão feito backup
 #DSTDIR=/hdexterno #diretório de destino do backup
@@ -28,7 +21,6 @@ echo "Data de inicio: $DATAIN"
  
 montahd(){
  
- 
 VERIFICA=$(df -h | awk '{ print $1}' | grep /dev/sdc2)
  
 if [ $VERIFICA = /dev/sdc2 ]; then
@@ -38,19 +30,12 @@ else
 ntfs-3g /dev/sdc2 /hdexterno/
 echo"HD MONTOU"
 fi
- 
 }
- 
  
 backupfull(){
  
- 
- 
- 
- 
 rsync -avzh  /dados/Backup/engenharia /hdexterno/engenharia
 
- 
 if [ $? -eq 0 ] ; then
    echo "----------------------------------------"
         echo "Backup Full concluído com Sucesso"
@@ -70,9 +55,6 @@ DATAFIN=`date +%c`
    msg4="Data de Inicio do Backup "$DATAIN
    msg5="Data de Termino "$DATAFIN
    
-  
- 
- 
     else
    echo "ERRO! Backup do dia $DATAIN" >> /var/log/backup_full.log
    echo "ERRO Backup do Dia " >> msg
@@ -99,25 +81,18 @@ Subject: $SUBJECT
  
 Resultado do Backup do Servidor Backup.
  
- 
- 
 $msg2
 $msg3
 $msg4
 $msg5
- 
 $msg6
- 
  
     Tamanho dos Discos SERVERBKP
  
 $msg7
  
- 
 By - Lucas Pires
 EOF
-   
- 
 }
  
 procuraedestroifull(){
@@ -132,8 +107,8 @@ find /hdexterno/SRVARQUIVOS -name "f*" -ctime $TIME_BKCP -exec rm -f {} ";"
 }
 montahd
 backupfull
+procuraedestroifull
 montaemail
 enviaemail
- 
  
 #exit 0 
