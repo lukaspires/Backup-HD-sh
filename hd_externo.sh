@@ -49,7 +49,7 @@ backupfull(){
  
  
 rsync -avzh  /dados/Backup/engenharia /hdexterno/engenharia
-#cp /dados/Backup/srvarquivos/full-$DATA.tar.gz /hdexterno/SRVARQUIVOS
+
  
 if [ $? -eq 0 ] ; then
    echo "----------------------------------------"
@@ -70,7 +70,7 @@ DATAFIN=`date +%c`
    msg4="Data de Inicio do Backup "$DATAIN
    msg5="Data de Termino "$DATAFIN
    
- #  msg6=$(du -hs /mnt/bck/full-30-05-2016-114954.tar.gz)    
+  
  
  
     else
