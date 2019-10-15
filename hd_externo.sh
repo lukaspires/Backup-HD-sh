@@ -97,7 +97,7 @@ From: $FROM
 To: $TO
 Subject: $SUBJECT
  
-Resultado do Backup do Servidor Backup.alcast.int.
+Resultado do Backup do Servidor Backup.
  
  
  
